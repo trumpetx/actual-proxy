@@ -1,0 +1,9 @@
+{
+    "name": "actual-proxy",
+    "version": "1.0.0",
+    "description": "Proxy the Actual Budget SDK to a file socket server",
+    "author": "David Greene",
+    "dependencies": {
+        "@actual-app/api": "^25.3.1"
+    }
+}
