@@ -65,6 +65,13 @@ Your version of Actual does not match the version in `package.json`.  This is an
 ### Stable Releases
 Simply match the version of your Actual Budet installation to the version used by `acutal-proxy` and run `npm i && npm rebuild` again.
 
+Your `package.json` file dependencies section:
+```
+    "dependencies": {
+        "@actual-app/api": "^25.3.1"
+    }
+```
+
 ### Edge Releases
 If you're using an EDGE release, be forewarned, this means checking out and building the Actual API yourself.  See https://actualbudget.org/docs/contributing/releasing for more information about how to do that.  You need to know what you're doing to go down this road.  You'll need to expand the explicit dependency to include `crdt` as well as the `api` package.
 
