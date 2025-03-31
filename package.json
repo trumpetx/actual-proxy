@@ -1,8 +1,17 @@
 {
     "name": "actual-proxy",
     "version": "1.0.0",
+    "license": "AGPL3",
     "description": "Proxy the Actual Budget SDK to a file socket server",
     "author": "David Greene",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/trumpetx/actual-proxy.git"
+    },
+    "keywords": [
+        "Actual",
+        "Finance"
+    ],
     "dependencies": {
         "@actual-app/api": "^25.3.1"
     }
