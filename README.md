@@ -4,7 +4,7 @@
 # Install & Setup
 ## Option 1: Pass Paramerers Via Socket, use default values
 ```
-git clone git@github.com:trumpetx/actual-proxy.git
+git clone https://github.com/trumpetx/actual-proxy.git
 cd actual-proxy
 npm i && npm rebuild
 node ./proxy.js
@@ -29,7 +29,7 @@ If things did not go well, see the FAQ!
 ## Option 2: Use Environment Variables
 Check out and build:
 ```
-git clone git@github.com:trumpetx/actual-proxy.git
+git clone https://github.com/trumpetx/actual-proxy.git
 cd actual-proxy
 npm i && npm rebuild
 ```
