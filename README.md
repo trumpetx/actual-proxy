@@ -12,18 +12,17 @@ npm i && npm rebuild
 # Run
 ## Option 1: Pass Paramerers Via Socket, use default values
 ```bash
-node ./proxy.js
+node ./proxy.js &
 ```
-Launch a simple socket client and pass in a JSON request as a string:
+Launch a simple socket client and pass in a JSON request as a string (requires `nc`):
 ```bash
-nc -U /tmp/acutal-proxy.sock
-{
-	"dataDir": "/home/<USERID>/.budget/",
-	"serverURL": "https://192.168.10.207:5006",
-	"password": "<YOUR PASSWORD>",
-	"budgetSyncId": "a6d25fdb-4014-494d-b6ee-7fcb33016a64",
-	"categories": [ ""Food", "General", "Bills", "Savings" ]
-}
+echo '{
+  "dataDir": "/home/<USERID>/.budget/",
+  "serverURL": "https://192.168.10.207:5006",
+  "password": "<YOUR PASSWORD>",
+  "budgetSyncId": "a6d25fdb-4014-494d-b6ee-7fcb33016a64",
+  "categories": [ "Food", "General", "Bills", "Savings" ]
+}' | nc -U /tmp/actual-proxy.sock
 ```
 If things go well, the output will be something like:
 ```json
@@ -44,10 +43,9 @@ ACTUAL_BUDGET_SYNC_ID=a6d25fdb-4014-494d-b6ee-7fcb33016a64 \
 ACTUAL_BUDGET_CATEGORIES=Food,General,Bills,Savings \
 node ./proxy.js
 ```
-Launch a simple socket client and send the smallest valid JSON object as input (the environment variables will handle everything):
+Launch a simple socket client and send the smallest valid JSON object as input (the environment variables will handle everything) (requires `nc`):
 ```bash
-nc -U /tmp/acutal-proxy.sock
-{}
+echo '{}' | nc -U /tmp/actual-proxy.sock
 ```
 If things go well, the output will be something like:
 ```json
