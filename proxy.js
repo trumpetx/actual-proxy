@@ -3,7 +3,8 @@ const api = require('@actual-app/api');
 const net = require('net')
 const fs = require('fs')
 
-const SOCK_FILE = process.env.ACTUAL_SOCK_FILE || '/tmp/actual-proxy.sock'
+const SOCK_FILE = process.env.ACTUAL_SOCK_FILE || '/tmp/actual-proxy.sock';
+const SOCK_PERMISSIONS = process.env.ACTUAL_SOCK_PERMISSIONS || 0o600;
 try {
     fs.unlinkSync(SOCK_FILE);
 } catch (error) { }
@@ -71,4 +72,4 @@ const server = net.createServer(conn => {
     })
 });
 
-server.listen(SOCK_FILE, () => fs.chmodSync(SOCK_FILE, 0o600));
+server.listen(SOCK_FILE, () => fs.chmodSync(SOCK_FILE, SOCK_PERMISSIONS));
