@@ -20,13 +20,13 @@ async function proxy(conn, config) {
     const serverURL = config.serverURL || process.env.ACTUAL_SERVER_URL || 'https://localhost:5006';
     requireAndLog(serverURL, 'ACTUAL_SERVER_URL');
     const dataDir = config.dataDir || process.env.ACTUAL_BUDGET_DATA_DIR || path.join(__dirname, '/budget');
-    requireAndLog(serverURL, 'ACTUAL_BUDGET_DATA_DIR');
+    requireAndLog(dataDir, 'ACTUAL_BUDGET_DATA_DIR');
     const password = config.password || process.env.ACTUAL_BUDGET_PASSWORD;
-    requireAndLog(serverURL, 'ACTUAL_BUDGET_PASSWORD');
+    requireAndLog(password, 'ACTUAL_BUDGET_PASSWORD');
     const budgetSyncId = config.budgetSyncId || process.env.ACTUAL_BUDGET_SYNC_ID;
-    requireAndLog(serverURL, 'ACTUAL_BUDGET_SYNC_ID');
+    requireAndLog(budgetSyncId, 'ACTUAL_BUDGET_SYNC_ID');
     const categories = config.categories || (process.env.ACTUAL_BUDGET_CATEGORIES || '').split(',').map(c => c.trim());
-    requireAndLog(serverURL, 'ACTUAL_BUDGET_CATEGORIES');
+    requireAndLog(categories, 'ACTUAL_BUDGET_CATEGORIES');
     try {
         if (!fs.existsSync(dataDir)) {
             fs.mkdirSync(dataDir, { recursive: true, mode: 0o700 });
